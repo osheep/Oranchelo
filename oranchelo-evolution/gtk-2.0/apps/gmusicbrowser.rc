@@ -1,0 +1,26 @@
+style "traytip-bg"
+{
+	bg[NORMAL]	= @base_color
+	engine "murrine"
+	{
+		textstyle = 1
+		text_shade = 0.75
+	}
+}
+
+style "gmusicbrowser-handle"
+{
+	GtkPaned::handle-size	= 1
+}
+
+style "window-base"
+{
+
+base[NORMAL]  = shade (0.8, @menubar_bg_color)
+
+  
+}
+widget_class "*gmusicbrowser*Window*"	style "window-base"
+widget "Shimmer Desktop.VBMain.HPMain"	style "gmusicbrowser-handle"
+widget "Shimmer Traytip"  style "traytip-bg"
+widget "sincauto-beta2.HBToolbar" style "window-base"

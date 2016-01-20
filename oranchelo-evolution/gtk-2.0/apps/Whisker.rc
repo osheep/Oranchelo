@@ -1,0 +1,76 @@
+## Whisker Menu Theme -- Oranchelo patch ##
+
+style "darkback"
+{
+
+ base[NORMAL]		= shade (0.8, @menubar_bg_color)
+ text[NORMAL] = shade (3.8, @menubar_bg_color)
+ bg[NORMAL] = shade (0.8, @menubar_bg_color)
+ bg[ACTIVE] = @selected_bg_color
+ bg[PRELIGHT] = shade (0.8, @menubar_bg_color)
+ fg[NORMAL] = "#fff"
+ fg[ACTIVE] = "#000000"
+ fg[PRELIGHT] = "#000000"
+
+}
+widget "whiskermenu-window*" style "darkback"
+
+
+
+
+style "handleW"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function				= HANDLE
+      recolorable			= TRUE
+      overlay_file			= "whiskermenu/handle-h.png"
+      overlay_stretch	= FALSE
+      orientation			= HORIZONTAL
+    }
+    image
+    {
+      function				= HANDLE
+      recolorable			= TRUE
+      overlay_file			= "whiskermenu/handle-v.png"
+      overlay_stretch	= FALSE
+      orientation			= VERTICAL
+    }
+}
+}
+
+widget_class "*whiskermenu*Paned*" style "handleW"
+
+style "entryW"
+{
+  xthickness            			= 8
+  ythickness            			= 4 
+  base[NORMAL] = "#ffffff"
+  base[INSENSITIVE] = shade (1.04, @bg_color)
+  text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
+{
+engine "adwaita"
+               }
+}
+
+widget "*whisker*GtkEntry" style "entryw"
+
+
+style "whiskermenu-scrollbar" = "murrine-scrollbar" {
+bg[NORMAL] = mix (0.21, @fg_color, @bg_color)
+	bg[PRELIGHT] = mix (0.31, @fg_color, @bg_color)
+	bg[ACTIVE] = @selected_bg_color
+
+	engine "murrine" {
+		trough_shades = { 4.97, 4.97 }
+		trough_border_shades = { 5.0, 5.0 }
+}
+
+widget "*whiskermenu*GtkVScrollbar" style "whiskermenu-scrollbar"
+
+
+
+widget_class "*GtkFileChooserWidget.GtkFileChooserDefault.GtkVBox.GtkHPaned.GtkVBox.GtkScrolledWindow.GtkTreeView*" style "sidepane"
+widget_class "*GtkFileChooserWidget.GtkFileChooserDefault.GtkVBox.GtkHPaned.GtkVBox.GtkScrolledWindow.<GtkTreeView>.<GtkButton>" style "treeview_header"

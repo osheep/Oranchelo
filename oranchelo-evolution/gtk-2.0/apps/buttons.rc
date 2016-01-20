@@ -1,0 +1,70 @@
+############ buttons ################################
+
+style "button" = "default"
+{
+
+
+  xthickness = 4
+  ythickness = 6
+
+    engine "pixmap"
+    {
+	image
+	{
+	    	function	= BOX
+		detail		= "buttondefault"
+		recolorable	= TRUE
+		file		= "Buttons/button-default.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= PRELIGHT
+		recolorable	= TRUE
+		file		= "Buttons/button-hover.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= ACTIVE
+		file		= "Buttons/button-push.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+			
+	image 
+	{
+		function	= BOX
+		state		= INSENSITIVE
+		file		= "Buttons/button-ins.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	# Button (normal)
+	image 
+	{
+	    	function	= BOX
+	    	file		= "Buttons/button-normal.svg"		
+	    	border		= { 9,9,12,13 }
+	    	stretch		= TRUE
+	}
+    ##############################
+                image 
+		{
+			function	= FOCUS
+    			file		= "Buttons/null.svg"
+     			#border		= { 9,9,12,13 }
+			stretch		= TRUE
+    		}	
+    }
+}
+
+
+class "GtkButton" 	style "button"

@@ -1,0 +1,126 @@
+style "notify-window" {
+    XfceNotifyWindow::summary-bold = 1
+    XfceNotifyWindow::border-color = "#2d2d2d"
+    XfceNotifyWindow::border-color-hover = "#333333"
+    XfceNotifyWindow::border-radius = 1.0
+    XfceNotifyWindow::border-width = 1.0
+    XfceNotifyWindow::border-width-hover = 1.0
+
+    bg[NORMAL] = "#262f2f"
+}
+
+style "notify-button" {
+    bg[NORMAL] = "#2d2d2d"
+    bg[PRELIGHT] = "#333333"
+    bg[ACTIVE] = "#2d2d2d"
+
+    fg[NORMAL] = "#dcdcdc"
+    fg[PRELIGHT] = "#dedede"
+    fg[ACTIVE] = "#dedede"
+
+    engine "pixmap"
+    {
+	image
+	{
+	    	function	= BOX
+		detail		= "buttondefault"
+		recolorable	= TRUE
+		file		= "Buttons/button-default.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= PRELIGHT
+		recolorable	= TRUE
+		file		= "Buttons/button-hover.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= ACTIVE
+		file		= "Buttons/button-push.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+			
+	image 
+	{
+		function	= BOX
+		state		= INSENSITIVE
+		file		= "Buttons/button-ins.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	# Button (normal)
+	image 
+	{
+	    	function	= BOX
+	    	file		= "Buttons/button-normal.svg"		
+	    	border		= { 9,9,12,13 }
+	    	stretch		= TRUE
+	}
+    ##############################
+                image 
+		{
+			function	= FOCUS
+    			file		= "Buttons/null.svg"
+     			#border		= { 9,9,12,13 }
+			stretch		= TRUE
+    		}
+
+    }
+}
+
+style "notify-text" {
+    GtkWidget::link-color = "#d64937"
+
+    fg[NORMAL] = "#f9f9f9"
+    fg[PRELIGHT] = "#f9f9f9"
+    fg[ACTIVE] = "#f9f9f9"
+
+    engine "murrine" {
+        textstyle = 0
+    }
+}
+
+style "notify-summary" {
+    font_name = "Bold"
+}
+
+style "notify-progressbar" {
+    xthickness   = 0
+    ythickness   = 1
+
+
+    bg[NORMAL]   = "#dcdcdc"
+	bg[ACTIVE] = "#585858"
+    bg[SELECTED] = "#20c07a"
+
+    fg[PRELIGHT] = "#939a93"
+    fg[ACTIVE] = "#f9f9f9"
+    fg[SELECTED] = "#333333"
+
+    engine "murrine" {
+        gradient_shades = { 1.0, 1.0, 1.0, 1.0 }
+        border_shades = { 1.0, 1.0 }
+		trough_shades = { 1.0, 1.0 }
+		trough_border_shades = { 1.0, 1.0 }
+        progressbarstyle = 0
+        roundness = 3
+        textstyle = 0
+    }
+}
+
+class "XfceNotifyWindow" style "notify-window"
+widget "XfceNotifyWindow.*.summary" style "notify-summary"
+widget_class "XfceNotifyWindow.*<GtkButton>" style "notify-button"
+widget_class "XfceNotifyWindow.*.<GtkLabel>" style "notify-text"
+widget_class "XfceNotifyWindow.*.<GtkProgress>" style "notify-progressbar"
+widget_class "XfceNotifyWindow.*.<GtkProgressBar>" style "notify-progressbar"

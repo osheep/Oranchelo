@@ -1,0 +1,5 @@
+style "icon-style"
+{  
+stock["gtk-help"] = {{ "stock_help.svg", *, *, * }}
+}
+class "GtkWidget" style "icon-style"

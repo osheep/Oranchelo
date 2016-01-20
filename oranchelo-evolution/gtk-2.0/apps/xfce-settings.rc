@@ -1,0 +1,65 @@
+#Patch by zayronxio#
+
+style "xfsm-logout" {
+font_name = "Bold"
+	bg[NORMAL] = "#313d40"
+	bg[ACTIVE] = "#313d40"
+	bg[PRELIGHT] = "#313d40"
+	bg[SELECTED] = "#313d40"
+	bg[INSENSITIVE] = "#313d40"
+
+
+    engine "pixmap"
+    {
+	image
+	{
+	    	function	= BOX
+		detail		= "buttondefault"
+		recolorable	= TRUE
+		file		= "Buttons/button-default-b.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= PRELIGHT
+		recolorable	= TRUE
+		file		= "Buttons/button-hover.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	image
+	{
+		function	= BOX
+		state		= ACTIVE
+		file		= "Buttons/button-push.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+			
+	image 
+	{
+		function	= BOX
+		state		= INSENSITIVE
+		file		= "Buttons/button-default-b.svg"
+		border		= { 9,9,12,13 }
+		stretch		= TRUE
+	}
+		
+	# Button (normal)
+	image 
+	{
+	    	function	= BOX
+	    	file		= "Buttons/button-default-b.svg"		
+	    	border		= { 9,9,12,13 }
+	    	stretch		= TRUE
+	}
+
+    }
+}
+
+widget_class "*XfsmLogoutDialog*" style "xfsm-logout"
+widget_class "*XfsmLogoutDialog*GtkButton" style "xfsm-logout-button"
